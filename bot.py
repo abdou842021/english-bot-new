@@ -13,7 +13,7 @@ from telegram.ext import (
 
 from deep_translator import GoogleTranslator
 import edge_tts
-import language_tool_python
+
 import eng_to_ipa as ipa
 from PyDictionary import PyDictionary
 from PIL import Image
