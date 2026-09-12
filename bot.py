@@ -512,10 +512,9 @@ def main():
 
 Thread(target=run_web, daemon=True).start()
 
-app.run_polling(
+application.run_polling(
     drop_pending_updates=True
 )
-
 
 if __name__ == "__main__":
     main()
