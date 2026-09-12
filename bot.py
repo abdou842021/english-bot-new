@@ -59,7 +59,7 @@ allowed_groups = load_allowed_groups()
 # الأدوات
 # ==================================================
 
-tool = language_tool_python.LanguageTool("en-US")
+
 dictionary = PyDictionary()
 
 
