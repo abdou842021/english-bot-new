@@ -435,27 +435,7 @@ async def correct_cmd(
         )
         return
 
-    try:
-
-        corrected = tool.correct(text)
-
-        if corrected.lower() == text.lower():
-
-            await update.message.reply_text(
-                "✅ النص صحيح."
-            )
-
-        else:
-
-            await update.message.reply_text(
-                f"❌ الأصل:\n{text}\n\n"
-                f"✅ التصحيح:\n{corrected}"
-            )
-
-    except Exception:
-        await update.message.reply_text(
-            "❌ حدث خطأ أثناء التصحيح."
-        )
+    
 
 
 # ==================================================
