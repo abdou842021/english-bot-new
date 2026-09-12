@@ -1,7 +1,0 @@
-python-telegram-bot
-deep-translator
-edge-tts
-eng-to-ipa
-PyDictionary
-Pillow
-pytesseract
