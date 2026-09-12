@@ -1,6 +1,8 @@
 import os
 import json
 import tempfile
+from flask import Flask
+from threading import Thread
 
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
@@ -36,7 +38,15 @@ def save_groups():
 
 
 allowed_groups = load_groups()
+web_app = Flask(__name__)
 
+@web_app.route("/")
+def home():
+    return "Bot is alive!"
+
+def run_web():
+    port = int(os.getenv("PORT", "10000"))
+    web_app.run(host="0.0.0.0", port=port)
 
 def is_owner(update):
     return (
@@ -500,9 +510,11 @@ def main():
 
     print("🤖 BOT IS RUNNING")
 
-    app.run_polling(
-        drop_pending_updates=True
-    )
+Thread(target=run_web, daemon=True).start()
+
+app.run_polling(
+    drop_pending_updates=True
+)
 
 
 if __name__ == "__main__":
