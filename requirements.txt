@@ -1,3 +1,4 @@
+
 python-telegram-bot==22.8
 deep-translator==1.11.4
 edge-tts==7.2.8
