@@ -492,6 +492,8 @@ async def list_groups(update, context):
 # =========================
 
 def main():
+    install_translation_model()
+
     if not TOKEN:
         raise RuntimeError(
             "BOT_TOKEN is missing."
