@@ -123,6 +123,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # TRANSLATE
 # =========================
 
+
 async def translate_cmd(update, context):
     if not is_allowed(update):
         return
@@ -142,15 +143,9 @@ async def translate_cmd(update, context):
             target="ar"
         ).translate(text)
 
-        try:
-            phonetic = ipa.convert(text)
-        except Exception:
-            phonetic = "N/A"
-
         await update.message.reply_text(
             f"🇬🇧 {text}\n\n"
-            f"🇩🇿 {arabic}\n\n"
-            f"🔤 {phonetic}"
+            f"🇩🇿 {arabic}"
         )
 
     except Exception as e:
@@ -158,7 +153,6 @@ async def translate_cmd(update, context):
         await update.message.reply_text(
             "❌ Translation failed."
         )
-
 
 # =========================
 # BRITISH
