@@ -510,11 +510,6 @@ def main():
 
     print("🤖 BOT IS RUNNING")
 
-Thread(target=run_web, daemon=True).start()
-
-application.run_polling(
-    drop_pending_updates=True
-)
-
 if __name__ == "__main__":
+    Thread(target=run_web, daemon=True).start()
     main()
