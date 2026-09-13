@@ -156,10 +156,15 @@ async def translate_cmd(update, context):
         return
 
     try:
-        arabic = GoogleTranslator(
-            source="en",
-            target="ar"
-        ).translate(text)
+        print("🔵 TR START:", text, flush=True)
+
+        arabic = argostranslate.translate.translate(
+            text,
+            "en",
+            "ar"
+        )
+
+        print("🟢 TR RESULT:", arabic, flush=True)
 
         await update.message.reply_text(
             f"🇬🇧 {text}\n\n"
@@ -167,9 +172,11 @@ async def translate_cmd(update, context):
         )
 
     except Exception as e:
-        print("Translate error:", e)
+        print("🔴 TR ERROR:", repr(e), flush=True)
+
         await update.message.reply_text(
-            "❌ Translation failed."
+            f"❌ Translation failed.\n\n"
+            f"Error: {e}"
         )
 
 # =========================
