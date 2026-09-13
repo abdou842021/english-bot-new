@@ -11,6 +11,8 @@ from deep_translator import GoogleTranslator
 import edge_tts
 import eng_to_ipa as ipa
 
+import argostranslate.package
+import argostranslate.translate
 
 TOKEN = os.getenv("BOT_TOKEN")
 OWNER_ID = int(os.getenv("OWNER_ID", "0"))
