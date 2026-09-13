@@ -508,8 +508,7 @@ def main():
     app.add_handler(CommandHandler("del", delete_group))
     app.add_handler(CommandHandler("list", list_groups))
 
-        print("🤖 BOT IS RUNNING")
-
+    print("🤖 BOT IS RUNNING")
     app.run_polling(drop_pending_updates=True)
 
 
