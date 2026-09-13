@@ -14,6 +14,22 @@ import eng_to_ipa as ipa
 import argostranslate.package
 import argostranslate.translate
 
+def install_translation_model():
+    try:
+        argostranslate.package.update_package_index()
+        packages = argostranslate.package.get_available_packages()
+
+        for package in packages:
+            if package.from_code == "en" and package.to_code == "ar":
+                package.install()
+                print("✅ English → Arabic model installed.")
+                return
+
+        print("❌ English → Arabic model not found.")
+
+    except Exception as e:
+        print("❌ Translation model error:", e)
+
 TOKEN = os.getenv("BOT_TOKEN")
 OWNER_ID = int(os.getenv("OWNER_ID", "0"))
 
