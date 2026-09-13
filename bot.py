@@ -375,13 +375,13 @@ async def add_group(update, context):
             "⛔ Owner only."
         )
         return
-
     group_id = None
 
-    if update.message.reply_to_message:
-        group_id = update.message.reply_to_message.chat.id
+    if update.effective_chat and update.effective_chat.type != "private":
+        group_id = update.effective_chat.id
 
     elif context.args:
+
         try:
             group_id = int(context.args[0])
         except ValueError:
